@@ -1,0 +1,22 @@
+class CheckArgument extends Exception {
+    CheckArgument(String msg) { super(msg); }
+}
+
+public class Lab6P5 {
+    public static void main(String[] args) {
+        try {
+            if (args.length < 4)
+                throw new CheckArgument("CheckArgument: At least 4 arguments required.");
+
+            int sum = 0;
+            for (int i = 0; i < 4; i++) {
+                int n = Integer.parseInt(args[i]);
+                sum += n * n;
+            }
+            System.out.println("Sum of squares of first 4 arguments = " + sum);
+
+        } catch (CheckArgument e) {
+            System.out.println("Exception occurred - " + e.getMessage());
+        }
+    }
+}
